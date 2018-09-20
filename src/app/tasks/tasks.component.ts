@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { TaskDialog } from '../task-dialog/task-dialog.component';
 
@@ -15,7 +16,9 @@ import { TasksService } from '../tasks.service';
 	styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
+	displayedColumns: string[] = ['date', 'status', 'task'];
 	statuses: Status[];
+	dataSource = new MatTableDataSource<Status>();
 	tasks: Task[];
 	constructor(
 		private dialog: MatDialog,
@@ -36,7 +39,7 @@ export class TasksComponent implements OnInit {
 
 	getTasks (): void{
 		this.tasksService.getTasks()
-			.subscribe(tasks => this.tasks = tasks);
+			.subscribe(tasks => {this.tasks = tasks; this.dataSource.data = tasks;});
 	}
 
 	addTask (data): void {

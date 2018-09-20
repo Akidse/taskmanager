@@ -1,10 +1,20 @@
-<div style="padding: 20px;">
+<div class="statuses-toolbar">
 	<div>Всего: {{statuses.length}}
-		<button mat-button (click)="openDialog()" style="float:right"><mat-icon>add</mat-icon></button>
+		<button mat-button (click)="openDialog()"><mat-icon>add</mat-icon></button>
 	</div>
 </div>
 
-<mat-list role="list">
-  <mat-list-item role="listitem" *ngFor=" let status of statuses; let i = index ">
-  {{i}} - {{status.status}}</mat-list-item>
-</mat-list>
+<mat-table *ngIf="statuses.length" [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="number">
+    <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"> {{i}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Статус </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

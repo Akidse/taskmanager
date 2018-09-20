@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { StatusDialog } from '../status-dialog/status-dialog.component';
 
@@ -12,7 +13,11 @@ import { StatusesService } from '../statuses.service';
 	styleUrls: ['./statuses.component.css']
 })
 export class StatusesComponent implements OnInit {
+	displayedColumns: string[] = ['number', 'status'];
+	dataSource = new MatTableDataSource<Status>();
+
 	statuses: Status[];
+	
 	constructor(
 		private dialog: MatDialog,
 		private statusesService: StatusesService){
@@ -25,7 +30,7 @@ export class StatusesComponent implements OnInit {
 
 	getStatuses (): void {
 		this.statusesService.getStatuses()
-			.subscribe(statuses => this.statuses = statuses);
+			.subscribe(statuses => {this.statuses = statuses; this.dataSource.data = statuses;});
 	}
 
 	addStatus (data): void {
@@ -34,6 +39,7 @@ export class StatusesComponent implements OnInit {
 		this.statusesService.addStatus(status)
 			.subscribe(status => this.getStatuses());
 	}
+
 	openDialog(){
 		const dialogConfig = new MatDialogConfig();
 

@@ -1,0 +1,16 @@
+.tasks-toolbar
+{
+	padding: 20px;
+	line-height: 40px;
+}
+
+.tasks-toolbar button
+{
+	float:right;
+}
+
+mat-table
+{
+	width: 80%;
+	margin: auto;
+}

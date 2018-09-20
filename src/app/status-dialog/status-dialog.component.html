@@ -1,12 +1,10 @@
 <h2 mat-dialog-title>Создать статус</h2>
 <mat-dialog-content [formGroup]="form">
-	  <mat-form-field>
-    <input matInput placeholder="Статус" formControlName="status">
-  </mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Статус" formControlName="status">
+	</mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button class="mat-raised-button mat-primary" (click)="save()">Создать</button>
-  <button mat-button (click)="close()">Отмена</button>
-  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-
+	<button mat-button class="mat-raised-button mat-primary" (click)="save()">Создать</button>
+	<button mat-button (click)="close()">Отмена</button>
 </mat-dialog-actions>

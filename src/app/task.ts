@@ -1,4 +1,4 @@
-export class Task{
+export class Task {
 	status: string;
 	status_id: number;
 	task: string;

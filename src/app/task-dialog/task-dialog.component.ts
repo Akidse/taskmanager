@@ -13,6 +13,7 @@ export class TaskDialog implements OnInit {
 	form: FormGroup;
 	task: Task;
 	date: Date;
+
 	constructor(
 		private fb: FormBuilder,
 		private dialogRef: MatDialogRef<TaskDialog>,
@@ -32,9 +33,11 @@ export class TaskDialog implements OnInit {
 			status_id: [this.task.status_id, []]
 		});
 	}
+
 	close() {
 	    this.dialogRef.close();
 	}
+	
 	save() {
 		this.dialogRef.close(this.form.value);
 	}
