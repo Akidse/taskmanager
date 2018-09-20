@@ -6,3 +6,5 @@ html, body{
 	padding: 0;
 	height: 100%;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
