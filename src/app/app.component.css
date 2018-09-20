@@ -1,0 +1,17 @@
+.container
+{
+	height:100%;
+	margin-top: -60px;
+	padding-top: 60px;
+}
+.toolbar
+{
+	height: 60px;
+}
+
+.left-panel{
+	border-right: 1px solid grey;
+}
+
+.content{
+}

@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Создать задание</h2>
+<mat-dialog-content [formGroup]="form">
+	<mat-form-field>
+		<input matInput [matDatepicker]="picker" placeholder="Дата" formControlName="date">
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field>
+		<mat-select placeholder="Статус" formControlName="status_id">
+			<mat-option *ngFor=" let status of statuses; let i = index " value="{{i}}">{{status.status}}</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<mat-form-field style="display: block;">
+		<textarea matInput placeholder="Описание задачи" formControlName="task"></textarea>
+	</mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-button class="mat-raised-button mat-primary" (click)="save()">Создать</button>
+	<button mat-button (click)="close()">Отмена</button>
+</mat-dialog-actions>

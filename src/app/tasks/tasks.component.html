@@ -1,0 +1,12 @@
+<div style="padding: 20px;">
+	<div>Всего: {{tasks.length}}
+		<button mat-button (click)="openDialog()" style="float:right"><mat-icon>add</mat-icon></button>
+	</div>
+</div>
+<div *ngFor=" let task of tasks; let i = index ">
+
+</div>
+
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor=" let task of tasks; let i = index ">{{task.date | date}} - {{getStatusName(task.status_id)}} - {{task.task}}</mat-list-item>
+</mat-list>
