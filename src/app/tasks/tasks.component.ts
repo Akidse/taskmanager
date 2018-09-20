@@ -40,6 +40,8 @@ export class TasksComponent implements OnInit {
 	}
 
 	addTask (data): void {
+		if(data == undefined || data.date == undefined
+			|| data.status_id == undefined || data.task == undefined)return;
 		let task = new Task();
 		task.date = data.date;
 		task.status_id = data.status_id;
